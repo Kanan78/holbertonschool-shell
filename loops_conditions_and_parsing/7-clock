@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#It displays hours from 0 to 12, minutes from 1 to 59
+i=0
+while [ $i -le 12 ]
+do
+echo 'Hour:' $i 
+k=1
+while [ $k -le 59 ]
+do
+echo $k 
+k=$((k+1))
+done
+i=$((i+1))
+done
