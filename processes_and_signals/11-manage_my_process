@@ -9,12 +9,12 @@ case "$1" in
 		echo 'manage_my_process started'
 		;;
 	stop)
-		killall 11-manage_my_process
+		killall manage_my_process
 		rm "$PIDFILE"
 		echo 'manage_my_process stopped'
 		;;
 	restart)
-		killall 11-manage_my_process
+		killall manage_my_process
 		rm "$PIDFILE"
 		./manage_my_process &
 		echo "$!" > /var/run/my_process.pid
