@@ -2,7 +2,7 @@
 #This script manages the process using arguments such as start, stop, and restart
 case "$1" in 
 	start) 
-		./manage_my_process
+		./manage_my_process &
 		echo "$$" > /var/run/my_process.pid
 		echo 'manage_my_process started'
 		;;
@@ -14,7 +14,7 @@ case "$1" in
 	restart)
 		killall 11-manage_my_process
 		rm /var/run/my_process.pid
-		./manage_my_process
+		./manage_my_process &
 		echo "$$" > /var/run/my_process.pid
 		echo 'manage_my_process restarted'
 		;;
