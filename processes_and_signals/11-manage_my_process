@@ -8,7 +8,7 @@ case "$1" in
 		;;
 	stop)
 		killall 11-manage_my_process
-		rm  /var/run/my_process.pid
+		rm /var/run/my_process.pid
 		echo 'manage_my_process stopped'
 		;;
 	restart)
