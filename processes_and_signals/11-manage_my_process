@@ -1,21 +1,23 @@
 #!/usr/bin/env bash
 #This script manages the process using arguments such as start, stop, and restart
+PIDFILE="/var/run/my_process.pid"
 case "$1" in 
 	start) 
+		mkdir -p /var/run 2>/dev/null
 		./manage_my_process &
-		echo "$$" > /var/run/my_process.pid
+		echo "$!" > "$PIDFILE"
 		echo 'manage_my_process started'
 		;;
 	stop)
 		killall 11-manage_my_process
-		rm /var/run/my_process.pid
+		rm "$PIDFILE"
 		echo 'manage_my_process stopped'
 		;;
 	restart)
 		killall 11-manage_my_process
-		rm /var/run/my_process.pid
+		rm "$PIDFILE"
 		./manage_my_process &
-		echo "$$" > /var/run/my_process.pid
+		echo "$!" > /var/run/my_process.pid
 		echo 'manage_my_process restarted'
 		;;
 	*)
